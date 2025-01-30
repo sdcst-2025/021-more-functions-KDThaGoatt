@@ -21,8 +21,21 @@ assert triangle(1,1,4) == 0
 (2 points)
 """
 
-def triangle():
-    return
+
+def triangle(x,y,z):
+    a = min(x,y,z)
+    c = max(x,y,z)
+    b = (x + y + z) - (a + c)
+    if (a+b) >= c and (a+c) >= b and (b+c) >= a:
+        pythagorean = (a**2) + (b**2)
+        if pythagorean == c**2:
+            return 2
+        elif pythagorean > c**2:
+            return 1
+        else:
+            return 3
+    else:
+        return 0
 
 def tests():
     assert triangle(12,5,13) == 2     
