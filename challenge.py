@@ -16,17 +16,16 @@ if they are diverging and will never have the same population
 """
 
 def population(p, r, n):
-    P = p*(1+r)**n
-    print(P)
+    P = p * (1+r)**n
     return P
 
 def equal(p1,r1,p2,r2):
-        for n in range(0,1000):
+        max_n = 100
+        for n in range(max_n):
             pop1 = population(p1,r1,n)
             pop2 = population(p2,r2,n)
-            if pop1 == pop2:
-                 print(n)
-                 return n
+            if pop1 >= pop2:
+                 return n - 1
 
 def tests():
     assert round(population(1000,.05, 5)) == 1276
@@ -34,3 +33,4 @@ def tests():
     assert equal(1000,.05,2000,.06) == None
     assert round(equal(1000,.03,2000,.01)) == 35
     
+tests()
